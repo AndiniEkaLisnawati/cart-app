@@ -16,20 +16,20 @@ export default function CartItem({
 }) {
   return (
     <motion.div
-      whileHover={{ scale: 1.02 }}
+      whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.97 }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.35, ease: "easeOut" }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
     >
-      <Card className="h-full p-4 border rounded-2xl shadow-sm hover:shadow-lg transition-all bg-white flex flex-col">
+      <Card className="h-full p-5 border border-pink-200 rounded-2xl shadow-sm hover:shadow-xl transition-all bg-white flex flex-col">
         <div className="w-full h-40 flex items-center justify-center mb-3">
           <Image
             src={image}
             alt={name}
             width={160}
             height={160}
-            className="object-contain max-h-full"
+            className="object-contain max-h-full drop-shadow-sm"
           />
         </div>
 
@@ -42,9 +42,11 @@ export default function CartItem({
           </p>
 
           <div className="flex items-center justify-between mt-3">
-            <span className="text-lg font-bold text-indigo-600">${price}</span>
-            <div className="flex items-center gap-1 text-yellow-500 text-sm">
-              <Star className="w-4 h-4 fill-yellow-500" />
+            <span className="text-lg font-bold bg-gradient-to-r from-pink-500 to-pink-700 text-transparent bg-clip-text">
+              ${price}
+            </span>
+            <div className="flex items-center gap-1 text-pink-500 text-sm">
+              <Star className="w-4 h-4 fill-pink-400" />
               {rating?.rate} ({rating?.count})
             </div>
           </div>
@@ -55,7 +57,7 @@ export default function CartItem({
           <motion.button
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.92 }}
-            className="flex itemws-center gap-2 px-3 py-2 bg-indigo-600 text-white text-sm rounded-xl shadow-md hover:bg-indigo-700 transition"
+            className="flex items-center gap-2 px-3 py-2 bg-gradient-to-r from-pink-400 to-pink-600 text-white text-sm rounded-xl shadow-md hover:shadow-lg transition"
           >
             <Counter price={price} />
           </motion.button>
