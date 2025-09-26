@@ -4,6 +4,7 @@ import { useCart } from "@/store/CartStore";
 import { ShoppingCart } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Navbar() {
   const { count } = useCart();
@@ -15,8 +16,8 @@ export default function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <h1 className="text-xl font-bold tracking-wide drop-shadow-md">
-        PinkCart ✨
+      <h1 className="text-xl font-bold tracking-wide drop-shadow-md flex items-center gap-2">
+        PinkCart <Image src="/logo.png" alt="Logo" width={30} height={30} />
       </h1>
 
       <nav></nav>

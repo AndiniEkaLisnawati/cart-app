@@ -8,7 +8,7 @@ const useListProducts = create((set) => ({
     fetchProducts: async () => {
         set({loading: true, error: null});
         try{
-            const res = await axios.get("https://fakestoreapi.com/products?limit=5");
+            const res = await axios.get("https://fakestoreapi.com/products");
             set({products: res.data, loading: false});
         }catch(error){
             set({error: error.message, loading: false});

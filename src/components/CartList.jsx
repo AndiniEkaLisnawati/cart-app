@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import CartItem from "./CartItem";
 import { useListProducts } from "@/store/CartStore";
+import LoadingScreen from "./LoadingScreen";
 
 export default function CartList() {
   const { products, fetchProducts, loading, error } = useListProducts();
@@ -13,16 +14,12 @@ export default function CartList() {
   }, [fetchProducts]);
 
   if (loading) {
-    return (
-      <div className="flex justify-center items-center h-64 text-lg font-medium text-pink-500">
-        Loading products...
-      </div>
-    );
+    return <LoadingScreen />;
   }
 
   if (error) {
     return (
-      <div className="flex justify-center items-center h-64 text-red-500 font-medium">
+      <div className="flex justify-center items-center h-64 text-red-500 font-semibold text-lg tracking-wide">
         {error}
       </div>
     );
@@ -30,17 +27,19 @@ export default function CartList() {
 
   return (
     <motion.section
-      className="p-8 min-h-screen bg-gradient-to-b from-pink-50 via-pink-100 to-white"
+      className="p-10 min-h-screen bg-gradient-to-br from-rose-50 via-white to-pink-50"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
     >
-      <h2 className="text-2xl font-bold text-center mb-8 bg-gradient-to-r from-pink-400 to-pink-600 text-transparent bg-clip-text">
-        Our Lovely Picks 💕
+      {/* Heading */}
+      <h2 className="text-3xl font-extrabold text-center mb-12 bg-gradient-to-r from-pink-500 via-rose-400 to-fuchsia-600 text-transparent bg-clip-text tracking-tight drop-shadow-sm">
+        Your Curated Cart
       </h2>
 
+      {/* Product Grid */}
       <motion.div
-        className="grid grid-cols-1 gap-8 max-h-lg"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
         initial="hidden"
         animate="visible"
         variants={{
@@ -57,11 +56,12 @@ export default function CartList() {
             <motion.div
               key={item.id}
               variants={{
-                hidden: { opacity: 0, y: 30, scale: 0.95 },
+                hidden: { opacity: 0, y: 40, scale: 0.95 },
                 visible: { opacity: 1, y: 0, scale: 1 },
               }}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              exit={{ opacity: 0, y: -20 }}
+              exit={{ opacity: 0, y: -30 }}
+              className="bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-shadow duration-300"
             >
               <CartItem
                 name={item.title}
