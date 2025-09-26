@@ -23,7 +23,7 @@ export default function Navbar() {
       <nav></nav>
 
       <Link
-        href="/cart"
+        href="/"
         className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-pink-400 to-pink-600 text-white text-sm rounded-2xl shadow-md hover:shadow-lg hover:scale-105 transition-all"
       >
         <ShoppingCart className="w-5 h-5" /> {count}
