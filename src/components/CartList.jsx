@@ -30,7 +30,7 @@ export default function CartList() {
 
   return (
     <motion.div
-      className="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6"
+      className="p-6 grid grid-cols-1 gap-6"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
@@ -44,7 +44,7 @@ export default function CartList() {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
           >
-            <CartItem item={item} />
+            <CartItem name={item.name} description={item.description} price={item.price} image={item.image} rating={item.rating} category={item.category} />
           </motion.div>
         ))}
       </AnimatePresence>

@@ -6,10 +6,7 @@ import CartList from "../components/CartList";
 export default function Home() {
   return (
     <div className="">
-      <Navbar />
       <CartList />
-      <Counter />
-
    
     </div>
   );
