@@ -24,13 +24,10 @@ export default function CartList() {
     fetchProducts();
   }, [fetchProducts]);
 
-  // ambil kategori unik dari produk
   const categories = useMemo(() => {
     const cats = Array.from(new Set(products.map((p) => p.category)));
     return ["all", ...cats];
   }, [products]);
-
-  // filter + search logic
   const filteredProducts = useMemo(() => {
     return products.filter((p) => {
       const matchSearch = p.title.toLowerCase().includes(search.toLowerCase());
@@ -58,12 +55,13 @@ export default function CartList() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
     >
-      {/* Heading */}
-      <h2 className="text-3xl font-extrabold text-center mb-8 bg-gradient-to-r from-pink-500 via-rose-400 to-fuchsia-600 text-transparent bg-clip-text tracking-tight drop-shadow-sm">
-        Your Curated Cart
-      </h2>
+      <div className="mb-8 flex flex-col items-center">
+        <h2 className="text-3xl font-extrabold text-center mb-8 bg-gradient-to-r from-pink-500 via-rose-400 to-fuchsia-600 text-transparent bg-clip-text tracking-tight drop-shadow-sm">
+          Your Curated Cart
+        </h2>
 
-      {/* Filter & Search */}
+      <div className="w-sm h-3 rounded-2xl bg-pink-100"></div>
+      </div>
      <Card className="w-full mb-10 shadow-md border border-slate-200">
   <CardHeader>
     <CardTitle className="text-lg font-semibold text-slate-700">
@@ -95,7 +93,6 @@ export default function CartList() {
   </CardContent>
 </Card>
 
-      {/* Product Grid */}
       <motion.div
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
         initial="hidden"

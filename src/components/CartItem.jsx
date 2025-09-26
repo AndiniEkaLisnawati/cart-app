@@ -29,7 +29,6 @@ export default function CartItem({
       transition={{ duration: 0.4, ease: "easeOut" }}
     >
       <Card className="h-full p-5 border border-slate-200 rounded-2xl shadow-sm hover:shadow-lg transition-all bg-gradient-to-br from-rose-50 via-white to-indigo-50 flex flex-col">
-        {/* Product Image */}
         <div className="w-full h-40 flex items-center justify-center mb-3">
           <Image
             src={image}
@@ -40,7 +39,6 @@ export default function CartItem({
           />
         </div>
 
-        {/* Product Info */}
         <div className="flex flex-col flex-grow">
           <h2 className="text-base font-semibold text-gray-800 line-clamp-2 min-h-[48px]">
             {name}
@@ -60,7 +58,6 @@ export default function CartItem({
           </div>
         </div>
 
-        {/* Footer */}
         <CardFooter className="flex justify-between items-center mt-4">
           <span className="text-sm text-gray-600 capitalize">{category}</span>
           <button
