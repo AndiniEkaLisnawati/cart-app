@@ -134,11 +134,12 @@ export default function CartList() {
             ))
           ) : (
             <p className="col-span-full text-center text-gray-500 font-medium">
-              No products found ✨
+              No products found..
             </p>
           )}
         </AnimatePresence>
       </motion.div>
+      
     </motion.section>
   );
 }
